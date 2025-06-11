@@ -3,14 +3,25 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3zpUcKcfO6J4h488Dd9LYqzhjyO_yWMu1g&s"
             alt="Imagen paisaje natural">
         <span>
-            <h4>{{ destino.nombre }}</h4>
+            <h4>{{ position }}</h4>
         </span>
     </div>
     <div class="card-desc">
         <h3>{{ destino.nombre }}</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor
-            quo, perspiciatis
-            voluptas totam</p>
-        <a href="#" class="btn-card">Read</a>
+        <p>Servicios </p>
+        <ul>
+            <li *ngFor="let s of destino.servicios">
+                <span [ngSwitch]="s">
+                    <i *ngSwitchCase="'Desayuno'" style="color: orange;">{{s}}</i>
+                    <i *ngSwitchDefault>{{s}}</i>                   
+                </span>
+            </li>
+
+        </ul>
+        <a href="#" class="btn-card" (click)="Ir()">Ir!</a>
+        <span *ngIf="destino.selected">
+            <span ngNonBindable>{{PREFERIDO}}</span>
+        </span>
+
     </div>
 </div>

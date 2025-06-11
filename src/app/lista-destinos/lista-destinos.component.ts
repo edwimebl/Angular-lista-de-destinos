@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DestinoViajeComponent } from "../destino-viaje/destino-viaje.component";
-import { DestinoViaje } from "../destino-viaje/destino-viaje.component";
+import { DestinoViaje } from "../models/destino-viaje.model";
 
 
 
@@ -25,4 +25,8 @@ export class ListaDestinosComponent {
     return false; // Evita el envío del formulario y recargar la página
   }
 
-}
+  elegido(d: DestinoViaje) {
+    this.destinos.forEach(function(x){x.setSelected(false);});
+    d.setSelected(true);      
+    }    
+  }
